@@ -7,7 +7,7 @@ class RNG(commands.Cog):
 
     @commands.command()
     async def roll(self, ctx, dice : str):
-        """Tira un dado con formato NdN."""
+        """Throw a dice NdN format."""
         try:
             rolls, limit = map(int, dice.split('d'))
         except Exception:
@@ -19,7 +19,7 @@ class RNG(commands.Cog):
 
     @commands.command()
     async def choose(self, ctx, *choices : str):
-        """Elige entre múltiples opciones."""
+        """Choose between multiple choices."""
         await ctx.send(random.choice(choices))
 
 def setup(bot):
