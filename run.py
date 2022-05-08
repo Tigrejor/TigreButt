@@ -7,6 +7,7 @@ config = Config()
 
 bot = commands.Bot(command_prefix=config.prefix, case_insensitive=True, description=config.description)
 
+# Define the extensions which are loaded when the bot starts
 startup_extensions = ["roles", "rng", "owner", "events"]
 
 @bot.command(hide=True)

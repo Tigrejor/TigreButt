@@ -10,6 +10,7 @@ class Roles(Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    # Check if we are in the right channel
     async def cog_check(self, ctx):
         if ctx.channel.id == config.roles_channel:
             return True
@@ -19,12 +20,13 @@ class Roles(Cog):
         if isinstance(error, CheckFailure):
             print(error)
 
+    # Call the check for the right channel
     async def cog_command_error(self, ctx, error):
         if isinstance(error, CheckFailure):
-            await ctx.send("Canal incorrecto", delete_after=5)
+            await ctx.send("Incorrect channel", delete_after=5)
             await asyncio.sleep(5)
             await ctx.message.delete()
-        else:
+        else: # If the error is not because of the wrong channel print to console
             print(error)
 
     @command(hide=True)
@@ -35,7 +37,7 @@ class Roles(Cog):
             print(r)
             print('--')
             roles += str(r) + " "
-        await ctx.send("```Tus roles son: " + roles + "```")
+        await ctx.send("```Your roles are: " + roles + "```")
 
 def setup(bot):
     bot.add_cog(Roles(bot))

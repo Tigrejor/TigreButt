@@ -5,10 +5,12 @@ from config import Config
 
 config = Config()
 
+# All commands defined here are only for the owner of the bot
 class Owner(Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    # Check if the one calling the command is the owner
     async def cog_check(self, ctx):
         if ctx.author.id == config.owner:
             return True
@@ -33,6 +35,7 @@ class Owner(Cog):
         await self.bot.close()
         await self.bot.logout()
 
+    # For testing purposes, prints a message to the console from discord
     @command(hide=True)
     async def console(self, ctx, msg : str):
         """Sends message to the console"""
