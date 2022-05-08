@@ -2,15 +2,17 @@ import configparser, os, shutil, sys
 
 class Config:
     def __init__(self):
+        # Check if config.ini exists, if it doesn't copy from example_config.ini
         if not os.path.exists('config.ini'):
             shutil.copyfile('example_config.ini', 'config.ini')
             print("Required file \"config.ini\" does not exist.")
-            print("Sample file \"example_config.ini\" being created, put the required data in it.")
+            print("Sample file \"example_config.ini\" copied, put the required data in \"config.ini\".")
             sys.exit()
         else:
             config = configparser.ConfigParser()
             config.read('config.ini')
 
+        # Defining al config options from config.ini
         BOT = config['BOT']
         self.token = BOT['token']
         self.description = BOT['description']

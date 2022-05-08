@@ -1,2 +1,3 @@
 *.ini
+!example_config.ini
 __pycache__
