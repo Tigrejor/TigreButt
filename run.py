@@ -1,5 +1,4 @@
-import configparser, asyncio, os, sys
-import discord
+import asyncio, sys
 from discord.ext import commands
 from config import Config
 

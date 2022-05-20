@@ -1,4 +1,3 @@
-import discord
 import asyncio
 from discord.ext.commands import Cog, command, CheckFailure
 from discord.utils import get

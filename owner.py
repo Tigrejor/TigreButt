@@ -1,5 +1,4 @@
 import asyncio
-import discord
 from discord.ext.commands import Cog, command, CheckFailure
 from config import Config
 
